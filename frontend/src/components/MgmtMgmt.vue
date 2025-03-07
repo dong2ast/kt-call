@@ -21,6 +21,7 @@
             <String label="Usim" v-model="value.usim" :editMode="editMode" :inputUI="''"/>
             <String label="Name" v-model="value.name" :editMode="editMode" :inputUI="''"/>
             <String label="Reason" v-model="value.reason" :editMode="editMode" :inputUI="''"/>
+            <Number label="ReportId" v-model="value.reportId" :editMode="editMode" :inputUI="''"/>
         </v-card-text>
 
         <v-card-actions style="background-color: white;">

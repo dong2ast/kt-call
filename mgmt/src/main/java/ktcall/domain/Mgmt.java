@@ -35,6 +35,8 @@ public class Mgmt {
 
     private String reason;
 
+    private Long reportId;
+
     public static MgmtRepository repository() {
         MgmtRepository mgmtRepository = MgmtApplication.applicationContext.getBean(
             MgmtRepository.class

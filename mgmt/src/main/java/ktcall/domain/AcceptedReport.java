@@ -17,6 +17,7 @@ public class AcceptedReport extends AbstractEvent {
     private String usim;
     private String name;
     private String reason;
+    private Long reportId;
 
     public AcceptedReport(Mgmt aggregate) {
         super(aggregate);

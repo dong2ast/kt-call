@@ -22,6 +22,11 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
+                { text: "name", value: "name" },
+                { text: "phoneNumber", value: "phoneNumber" },
+                { text: "reason", value: "reason" },
+                { text: "usim", value: "usim" },
+                { text: "imei", value: "imei" },
             ],
             reportDetail : [],
         }),

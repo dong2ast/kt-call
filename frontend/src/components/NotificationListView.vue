@@ -22,6 +22,9 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
+                { text: "titled", value: "titled" },
+                { text: "description", value: "description" },
+                { text: "from", value: "from" },
             ],
             notificationList : [],
         }),

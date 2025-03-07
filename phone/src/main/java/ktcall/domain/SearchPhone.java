@@ -15,4 +15,9 @@ public class SearchPhone {
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    private String owner;
+    private String phoneNumber;
+    private String usimStatus;
+    private String imeiStatus;
 }

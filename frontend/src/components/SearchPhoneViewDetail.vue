@@ -6,6 +6,18 @@
         </v-card-title>
 
         <v-card-text>
+            <div>
+                <String label="Owner" v-model="item.owner" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="PhoneNumber" v-model="item.phoneNumber" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="UsimStatus" v-model="item.usimStatus" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="ImeiStatus" v-model="item.imeiStatus" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 

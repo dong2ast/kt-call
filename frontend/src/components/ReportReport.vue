@@ -54,13 +54,6 @@
                     text
                     @click="save"
                 >
-                    Report
-                </v-btn>
-                <v-btn
-                    color="primary"
-                    text
-                    @click="save"
-                >
                     Lock
                 </v-btn>
                 <v-btn
@@ -82,6 +75,20 @@
         </v-card-actions>
         <v-card-actions>
             <v-spacer></v-spacer>
+            <v-btn
+                v-if="!editMode"
+                color="primary"
+                text
+                @click="openReport"
+            >
+                Report
+            </v-btn>
+            <v-dialog v-model="reportDiagram" width="500">
+                <ReportCommand
+                    @closeDialog="closeReport"
+                    @report="report"
+                ></ReportCommand>
+            </v-dialog>
         </v-card-actions>
 
         <v-snackbar
@@ -119,6 +126,7 @@
                 timeout: 5000,
                 text: '',
             },
+            reportDiagram: false,
         }),
 	async created() {
         },
@@ -215,6 +223,27 @@
             },
             change(){
                 this.$emit('input', this.value);
+            },
+            async report() {
+                try {
+                    if(!this.offline){
+                        var temp = await axios.post(axios.fixUrl(this.value._links['/report'].href))
+                        for(var k in temp.data) this.value[k]=temp.data[k];
+                    }
+
+                    this.editMode = false;
+                    
+                    this.$emit('input', this.value);
+                    this.$emit('delete', this.value);
+                
+                } catch(e) {
+                    this.snackbar.status = true
+                    if(e.response && e.response.data.message) {
+                        this.snackbar.text = e.response.data.message
+                    } else {
+                        this.snackbar.text = e
+                    }
+                }
             },
         },
     }

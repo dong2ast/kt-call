@@ -15,4 +15,10 @@ public class ReportDetail {
     @Id
     //@GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
+
+    private String name;
+    private String phoneNumber;
+    private String reason;
+    private String usim;
+    private String imei;
 }

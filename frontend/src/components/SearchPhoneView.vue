@@ -22,6 +22,10 @@
         data: () => ({
             headers: [
                 { text: "id", value: "id" },
+                { text: "owner", value: "owner" },
+                { text: "phoneNumber", value: "phoneNumber" },
+                { text: "usimStatus", value: "usimStatus" },
+                { text: "imeiStatus", value: "imeiStatus" },
             ],
             searchPhone : [],
         }),

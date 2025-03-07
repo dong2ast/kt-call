@@ -6,6 +6,15 @@
         </v-card-title>
 
         <v-card-text>
+            <div>
+                <String label="Titled" v-model="item.titled" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="Description" v-model="item.description" :editMode="editMode" @change="change" />
+            </div>
+            <div>
+                <String label="From" v-model="item.from" :editMode="editMode" @change="change" />
+            </div>
         </v-card-text>
     </v-card>
 

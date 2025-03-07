@@ -12,7 +12,6 @@ import lombok.*;
 public class Locked extends AbstractEvent {
 
     private Long id;
-    private Long phoneId;
     private String name;
     private String phoneNumber;
     private String reason;

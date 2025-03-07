@@ -9,7 +9,6 @@ import javax.persistence.*;
 import ktcall.ReportApplication;
 import ktcall.domain.CanceledReport;
 import ktcall.domain.Locked;
-import ktcall.domain.Reported;
 import ktcall.domain.Unlocked;
 import lombok.Data;
 
@@ -35,9 +34,6 @@ public class Report {
 
     @PostPersist
     public void onPostPersist() {
-        Reported reported = new Reported(this);
-        reported.publishAfterCommit();
-
         CanceledReport canceledReport = new CanceledReport(this);
         canceledReport.publishAfterCommit();
 
@@ -54,6 +50,16 @@ public class Report {
         );
         return reportRepository;
     }
+
+    //<<< Clean Arch / Port Method
+    public void report(ReportCommand reportCommand) {
+        //implement business logic here:
+
+        Reported reported = new Reported(this);
+        reported.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
 
     //<<< Clean Arch / Port Method
     public static void changeReportStatus(DeletedReport deletedReport) {

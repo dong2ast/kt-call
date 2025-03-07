@@ -66,6 +66,7 @@
                     { text: "usim", value: "usim" },
                     { text: "name", value: "name" },
                     { text: "reason", value: "reason" },
+                    { text: "reportId", value: "reportId" },
                 ],
             mgmt : [],
             newValue: {},
@@ -88,6 +89,7 @@
                 'usim': '',
                 'name': '',
                 'reason': '',
+                'reportId': 0,
             }
         },
         methods: {

@@ -46,6 +46,7 @@
                             
                             
                             
+                            
                         </v-list-item-title>
 
                         <v-list-item-subtitle style="font-size:25px; font-weight:700;">
@@ -55,6 +56,7 @@
                             [ Usim :  {{data.usim }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Name :  {{data.name }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             [ Reason :  {{data.reason }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            [ ReportId :  {{data.reportId }} ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         </v-list-item-subtitle>
 
                     </v-list-item-content>
@@ -119,6 +121,7 @@
                 'usim': '',
                 'name': '',
                 'reason': '',
+                'reportId': 0,
             }
         },
         methods: {

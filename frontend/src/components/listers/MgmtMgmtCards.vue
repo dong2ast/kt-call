@@ -106,6 +106,7 @@
                 'usim': '',
                 'name': '',
                 'reason': '',
+                'reportId': 0,
             }
         },
         methods:{

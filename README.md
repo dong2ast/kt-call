@@ -39,7 +39,7 @@ mvn spring-boot:run
 ```
 - mgmt
 ```
- http :8088/mgmts id="id"phoneNumber="phoneNumber"imei="imei"usim="usim"name="name"reason="reason"
+ http :8088/mgmts id="id"phoneNumber="phoneNumber"imei="imei"usim="usim"name="name"reason="reason"reportId="reportId"
 ```
 - notification
 ```

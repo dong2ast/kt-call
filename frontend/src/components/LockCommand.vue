@@ -5,6 +5,11 @@
         </v-card-title>
 
         <v-card-text>
+            <String label="Name" v-model="value.name" :editMode="editMode"/>
+            <String label="PhoneNumber" v-model="value.phoneNumber" :editMode="editMode"/>
+            <String label="Reason" v-model="value.reason" :editMode="editMode"/>
+            <String label="Usim" v-model="value.usim" :editMode="editMode"/>
+            <String label="Imei" v-model="value.imei" :editMode="editMode"/>
         </v-card-text>
 
         <v-card-actions>
@@ -40,6 +45,11 @@
             value: {},
         }),
         created() {
+            this.value.name = '';
+            this.value.phoneNumber = '';
+            this.value.reason = '';
+            this.value.usim = '';
+            this.value.imei = '';
         },
         watch: {
         },

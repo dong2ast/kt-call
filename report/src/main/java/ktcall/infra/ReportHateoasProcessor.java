@@ -14,8 +14,23 @@ public class ReportHateoasProcessor
     public EntityModel<Report> process(EntityModel<Report> model) {
         model.add(
             Link
+                .of(model.getRequiredLink("self").getHref() + "/cancelreport")
+                .withRel("cancelreport")
+        );
+        model.add(
+            Link
                 .of(model.getRequiredLink("self").getHref() + "/report")
                 .withRel("report")
+        );
+        model.add(
+            Link
+                .of(model.getRequiredLink("self").getHref() + "/lock")
+                .withRel("lock")
+        );
+        model.add(
+            Link
+                .of(model.getRequiredLink("self").getHref() + "/unlock")
+                .withRel("unlock")
         );
 
         return model;

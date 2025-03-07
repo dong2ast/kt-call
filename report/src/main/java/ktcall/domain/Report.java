@@ -7,9 +7,6 @@ import java.util.List;
 import java.util.Map;
 import javax.persistence.*;
 import ktcall.ReportApplication;
-import ktcall.domain.CanceledReport;
-import ktcall.domain.Locked;
-import ktcall.domain.Unlocked;
 import lombok.Data;
 
 @Entity
@@ -32,18 +29,6 @@ public class Report {
 
     private String imei;
 
-    @PostPersist
-    public void onPostPersist() {
-        CanceledReport canceledReport = new CanceledReport(this);
-        canceledReport.publishAfterCommit();
-
-        Locked locked = new Locked(this);
-        locked.publishAfterCommit();
-
-        Unlocked unlocked = new Unlocked(this);
-        unlocked.publishAfterCommit();
-    }
-
     public static ReportRepository repository() {
         ReportRepository reportRepository = ReportApplication.applicationContext.getBean(
             ReportRepository.class
@@ -52,11 +37,38 @@ public class Report {
     }
 
     //<<< Clean Arch / Port Method
+    public void cancelReport(CancelReportCommand cancelReportCommand) {
+        //implement business logic here:
+
+        CanceledReport canceledReport = new CanceledReport(this);
+        canceledReport.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
     public void report(ReportCommand reportCommand) {
         //implement business logic here:
 
         Reported reported = new Reported(this);
         reported.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public void lock(LockCommand lockCommand) {
+        //implement business logic here:
+
+        Locked locked = new Locked(this);
+        locked.publishAfterCommit();
+    }
+
+    //>>> Clean Arch / Port Method
+    //<<< Clean Arch / Port Method
+    public void unlock(UnlockCommand unlockCommand) {
+        //implement business logic here:
+
+        Unlocked unlocked = new Unlocked(this);
+        unlocked.publishAfterCommit();
     }
 
     //>>> Clean Arch / Port Method

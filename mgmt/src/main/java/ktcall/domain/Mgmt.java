@@ -22,7 +22,7 @@ import lombok.Data;
 public class Mgmt {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String phoneNumber;
@@ -42,35 +42,21 @@ public class Mgmt {
         return mgmtRepository;
     }
 
+    public Mgmt(Reported reported){
+        this.name = reported.getName();
+        this.phoneNumber = reported.getPhoneNumber();
+        this.reason = reported.getReason();
+    }
+
     //<<< Clean Arch / Port Method
     public static void addReport(Reported reported) {
         //implement business logic here:
 
-        /** Example 1:  new item 
-        Mgmt mgmt = new Mgmt();
+        Mgmt mgmt = new Mgmt(reported);
         repository().save(mgmt);
 
         AcceptedReport acceptedReport = new AcceptedReport(mgmt);
         acceptedReport.publishAfterCommit();
-        */
-
-        /** Example 2:  finding and process
-        
-        // if reported.authId exists, use it
-        
-        // ObjectMapper mapper = new ObjectMapper();
-        // Map<, Object> reportMap = mapper.convertValue(reported.getAuthId(), Map.class);
-
-        repository().findById(reported.get???()).ifPresent(mgmt->{
-            
-            mgmt // do something
-            repository().save(mgmt);
-
-            AcceptedReport acceptedReport = new AcceptedReport(mgmt);
-            acceptedReport.publishAfterCommit();
-
-         });
-        */
 
     }
 

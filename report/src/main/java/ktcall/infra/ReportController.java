@@ -54,8 +54,8 @@ public class ReportController {
     ) throws Exception {
         System.out.println("##### /report/report  called #####");
         Report report = new Report();
-        report.report(reportCommand);
         reportRepository.save(report);
+        report.report(reportCommand);
         return report;
     }
 

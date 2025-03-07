@@ -16,7 +16,7 @@ import lombok.Data;
 public class Report {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
@@ -49,6 +49,9 @@ public class Report {
     public void report(ReportCommand reportCommand) {
         //implement business logic here:
 
+        this.setName(reportCommand.getName());
+        this.setPhoneNumber(reportCommand.getPhoneNumber());
+        this.setReason(reportCommand.getReason());
         Reported reported = new Reported(this);
         reported.publishAfterCommit();
     }
